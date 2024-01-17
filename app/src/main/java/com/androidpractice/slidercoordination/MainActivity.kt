@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
@@ -20,6 +21,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.androidpractice.slidercoordination.ui.theme.SliderCoordinationTheme
@@ -50,6 +52,9 @@ fun SliderScreen() {
         fontSize = fontSize * multipier
     }
 
+   var sfz: (x: Float) -> Unit = {
+       x -> fontSize *= x
+   }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -68,10 +73,14 @@ fun SliderScreen() {
                 fontSize = fontSize.sp)
         }
 
+        Divider(color = Color.Black)
+
         Box(modifier = Modifier.weight(0.05f, fill = true)
         , contentAlignment = Alignment.Center){
             SliderM3(::setFontSize)
         }
+
+        Divider(color = Color.Black)
 
         Column(
             modifier = Modifier
